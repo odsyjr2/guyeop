@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main()
+{
+	int num;
+	char select[3] = { 0,"\0" };
+	printf("홀 짝 입력 : ");
+
+	select[0] = getchar();
+	select[1] = getchar();
+
+	srand(time(NULL));
+	num = rand() % 52;
+	printf("나온 수 : %d\n", num);
+
+	if (num == 25)
+	{
+		printf("수고");
+		return 0;
+	}
+
+	if (strcmp(select, "홀") == 0)
+	{
+		if (num % 2 == 0)
+			printf("틀림\n");
+		else
+			printf("맞음\n");
+	}
+
+	else if (strcmp(select, "짝") == 0)
+	{
+		if (num % 2 == 0)
+			printf("맞음\n");
+		else
+			printf("틀림\n");
+	}
+
+	else
+		printf("홀 아니면 짝 쓰라고\n");
+	return 0;
+}
