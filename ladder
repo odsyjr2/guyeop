@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+	int num1, num2;
+	char select[3] = { 0,"\0" };
+	printf("num1 홀 짝 입력 : ");
+
+	select[0] = getchar();
+	select[1] = getchar();
+
+	srand(time(NULL));
+	num1 = rand() % 52;
+	num2 = rand() % 52;
+
+	if (num1 % 2 == 1)
+	{
+		if (num2 % 2 == 1)
+			num2++;
+	}
+	else if (num1 % 2 == 0)
+	{
+		if (num2 % 2 == 0)
+			num2++;
+	}
+
+	printf("num1 : %d\n", num1);
+	printf("num2 : %d\n", num2);
+	
+
+	if (strcmp(select, "홀") == 0)
+	{
+		if (num1 % 2 == 0)
+			printf("틀림\n");
+		else
+			printf("맞음\n");
+	}
+	else if (strcmp(select, "짝") == 0)
+	{
+		if (num1 % 2 == 0)
+			printf("맞음\n");
+		else
+			printf("틀림\n");
+	}
+	else
+		printf("홀 아니면 짝 쓰라고\n");
+	return 0;
+}
