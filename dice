@@ -4,19 +4,20 @@
 int* dice_prob(int*, int*);
 int main()
 {
-	int dice[6], prob[4] = { 30,53,10,7 }, mul[4] = { 0,1,2,3 };
+	int dice[6], prob[4] = { 30, 83, 93, 100 }, mul[4] = { 0, 1, 2, 3 };
 	printf("주사위 굴리기\n");
+	srand(time(NULL));
 	for (int i = 0; i < 6; i++)
 		dice[i] = dice_prob(prob, mul);
-	srand(time(NULL));
+	
 	int a = rand() % 6;
 	printf("%d배\n", dice[a]);
 	return 0;
 }
 int* dice_prob(int* a, int* b)
 {
-	srand(time(NULL));
-	int prob = rand() % 100;
+	int prob;
+	prob = rand() % 100;
 	if (0 <= prob && prob < a[0])
 		return b[0];
 	if (a[0] <= prob && prob < a[1])
